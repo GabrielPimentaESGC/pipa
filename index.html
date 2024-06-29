@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabéns Pipa</title>
+    <style>
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0.3; }
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('ft.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            z-index: 0;
+            animation: fadeOut 3s forwards;
+        }
+        .content-wrapper {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-family: 'Brush Script MT', cursive;
+        }
+        video {
+            width: 90%;
+            height: auto;
+            margin-top: 30px;
+        }
+        .reveal-button {
+            display: none;
+            position: relative;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 1em;
+            color: white;
+            background: none;
+            border: 2px solid white;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .reveal-button:hover, .reveal-button:focus {
+            background-color: white;
+            color: black;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                document.querySelector('.background-image').style.opacity = '0.3';
+                document.querySelector('.reveal-button').style.display = 'inline-block';
+            }, 3000);
+        };
+
+        function revealContent() {
+            document.querySelector('.content-wrapper').style.display = 'flex';
+            document.querySelector('.reveal-button').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content-wrapper">
+        <h1>Parabéns Pipa✨</h1>
+        <video controls>
+            <source src="pipsmp4.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </div>
+    <button class="reveal-button" onclick="revealContent()">Revelar Surpresa</button>
+</body>
+</html>
